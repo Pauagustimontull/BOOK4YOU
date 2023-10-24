@@ -13,7 +13,9 @@ import javax.swing.SwingUtilities;
  * @author alumnat
  */
 public class MainPage extends javax.swing.JPanel {
-  boolean selected = false;
+
+    boolean selected = false;
+
     public MainPage() {
         initComponents();
     }
@@ -29,7 +31,17 @@ public class MainPage extends javax.swing.JPanel {
 
         jFrame1 = new javax.swing.JFrame();
         jButton11 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        Barcelona = new javax.swing.JLabel();
+        Madrid = new javax.swing.JLabel();
+        Sevilla = new javax.swing.JLabel();
+        Coruña = new javax.swing.JLabel();
+        Zaragoza = new javax.swing.JLabel();
+        Valencia = new javax.swing.JLabel();
+        Valladolid = new javax.swing.JLabel();
+        Asturias = new javax.swing.JLabel();
+        Murcia = new javax.swing.JLabel();
+        Resultado = new javax.swing.JLabel();
+        Resultado1 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
         jButton10 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -62,8 +74,40 @@ public class MainPage extends javax.swing.JPanel {
         });
         add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1800, 20, 60, 70));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/chincheta.png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1360, 410, -1, 100));
+        Barcelona.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/chincheta.png"))); // NOI18N
+        add(Barcelona, new org.netbeans.lib.awtextra.AbsoluteConstraints(1360, 410, -1, 100));
+
+        Madrid.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/chincheta.png"))); // NOI18N
+        add(Madrid, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 500, -1, 100));
+
+        Sevilla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/chincheta.png"))); // NOI18N
+        add(Sevilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 680, -1, 100));
+
+        Coruña.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/chincheta.png"))); // NOI18N
+        add(Coruña, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 300, -1, 100));
+
+        Zaragoza.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/chincheta.png"))); // NOI18N
+        add(Zaragoza, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 410, -1, 100));
+
+        Valencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/chincheta.png"))); // NOI18N
+        add(Valencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 550, -1, 100));
+
+        Valladolid.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/chincheta.png"))); // NOI18N
+        add(Valladolid, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 410, -1, 100));
+
+        Asturias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/chincheta.png"))); // NOI18N
+        add(Asturias, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 310, -1, 100));
+
+        Murcia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/chincheta.png"))); // NOI18N
+        add(Murcia, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 640, -1, 100));
+
+        Resultado.setFont(new java.awt.Font("Trebuchet MS", 0, 24)); // NOI18N
+        Resultado.setForeground(new java.awt.Color(102, 102, 102));
+        add(Resultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 390, 50));
+
+        Resultado1.setFont(new java.awt.Font("Trebuchet MS", 0, 24)); // NOI18N
+        Resultado1.setForeground(new java.awt.Color(102, 102, 102));
+        add(Resultado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 420, 50));
 
         jTextField4.setFont(new java.awt.Font("Trebuchet MS", 0, 36)); // NOI18N
         jTextField4.setForeground(new java.awt.Color(102, 102, 102));
@@ -79,7 +123,12 @@ public class MainPage extends javax.swing.JPanel {
                 jTextField4ActionPerformed(evt);
             }
         });
-        add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 290, 50));
+        jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField4KeyTyped(evt);
+            }
+        });
+        add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 300, 50));
 
         jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/lupa_basic.png"))); // NOI18N
         jButton10.setBorder(null);
@@ -100,12 +149,46 @@ public class MainPage extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-       
+        Barcelona.setVisible(false);
+        Madrid.setVisible(false);
+        Sevilla.setVisible(false);
+        Coruña.setVisible(false);
+        Zaragoza.setVisible(false);
+        Valencia.setVisible(false);
+        Valladolid.setVisible(false);
+        Asturias.setVisible(false);
+        Murcia.setVisible(false);
+        Resultado.setText("");
+            Resultado1.setText("");
+        String userInput = jTextField4.getText().toUpperCase();
+
+        if (userInput.equals("BARCELONA")) {
+            Barcelona.setVisible(true);
+        } else if (userInput.equals("MADRID")) {
+            Madrid.setVisible(true);
+        } else if (userInput.equals("SEVILLA")) {
+            Sevilla.setVisible(true);
+        } else if (userInput.equals("CORUÑA")) {
+            Coruña.setVisible(true);
+        } else if (userInput.equals("ZARAGOZA")) {
+            Zaragoza.setVisible(true);
+        } else if (userInput.equals("VALENCIA")) {
+            Valencia.setVisible(true);
+        } else if (userInput.equals("VALLADOLID")) {
+            Valladolid.setVisible(true);
+        } else if (userInput.equals("ASTURIAS")) {
+            Asturias.setVisible(true);
+        } else if (userInput.equals("MURCIA")) {
+            Murcia.setVisible(true);
+        } else {
+            Resultado.setText("There are not results ");
+            Resultado1.setText("with the name '" + userInput + "'");
+        }
 
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jTextField4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField4MouseClicked
-        // TODO add your handling code here:
+        jTextField4.setText("");
     }//GEN-LAST:event_jTextField4MouseClicked
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
@@ -118,16 +201,30 @@ public class MainPage extends javax.swing.JPanel {
         JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
         marco.remove(this);
         marco.add(new PanelBase());
-        marco.setVisible(true); 
+        marco.setVisible(true);
     }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jTextField4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4KeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JLabel Asturias;
+    public static javax.swing.JLabel Barcelona;
+    public static javax.swing.JLabel Coruña;
+    public static javax.swing.JLabel Madrid;
+    public static javax.swing.JLabel Murcia;
+    public static javax.swing.JLabel Resultado;
+    public static javax.swing.JLabel Resultado1;
+    public static javax.swing.JLabel Sevilla;
+    public static javax.swing.JLabel Valencia;
+    public static javax.swing.JLabel Valladolid;
+    public static javax.swing.JLabel Zaragoza;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }

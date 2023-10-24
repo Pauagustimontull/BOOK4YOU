@@ -95,6 +95,29 @@ public static Usuario login(Connection con, String nombreUsuario, String passwor
 
     return usuario;
 }
+public static Usuario register(Connection con, String name, String email, String password,String dnii, String surname) {
+    String sql = "INSERT INTO USUARIO (name, email, password, image, coins, dnii, surname, adress, active) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+ Usuario usuario = null;
+    try (PreparedStatement st = con.prepareStatement(sql)) {
+        st.setString(1, name);
+        st.setString(2, email);
+        st.setString(3, password);
+        st.setString(4, null);
+        st.setInt(5, 0);
+        st.setString(6, dnii);
+        st.setString(7, surname);
+        st.setString(8, null);
+        st.setBoolean(9, true);
+
+        int rowsAffected = st.executeUpdate();
+       
+    } catch (SQLException e) {
+        System.out.println("Error en la consulta: " + e);
+       
+    }
+    usuario = login(con,email,password );
+    return usuario;
+}
 
 
 

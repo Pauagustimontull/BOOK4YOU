@@ -6,6 +6,7 @@
 package BOOK4U;
 
 import javax.swing.JFrame;
+
 import javax.swing.SwingUtilities;
 
 /**
@@ -13,7 +14,9 @@ import javax.swing.SwingUtilities;
  * @author alumnat
  */
 public class Register extends javax.swing.JPanel {
-  boolean selected = false;
+
+    boolean selected = false;
+
     public Register() {
         initComponents();
     }
@@ -28,16 +31,17 @@ public class Register extends javax.swing.JPanel {
     private void initComponents() {
 
         jFrame1 = new javax.swing.JFrame();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jPasswordField2 = new javax.swing.JPasswordField();
+        jTextArea3 = new javax.swing.JTextArea();
+        Surname = new javax.swing.JTextField();
+        Dni = new javax.swing.JTextField();
+        Name = new javax.swing.JTextField();
+        Email = new javax.swing.JTextField();
+        Password = new javax.swing.JPasswordField();
+        ConfirmPassword = new javax.swing.JPasswordField();
         jButton10 = new javax.swing.JButton();
         jTextArea1 = new javax.swing.JTextArea();
         jTextArea2 = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
+        Base = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -53,96 +57,105 @@ public class Register extends javax.swing.JPanel {
         setMaximumSize(new java.awt.Dimension(25, 25));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField4.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(102, 102, 102));
-        jTextField4.setBorder(null);
-        jTextField4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField4MouseClicked(evt);
-            }
-        });
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
-            }
-        });
-        add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 620, 370, 50));
+        jTextArea3.setEditable(false);
+        jTextArea3.setBackground(new java.awt.Color(255, 255, 255));
+        jTextArea3.setColumns(20);
+        jTextArea3.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        jTextArea3.setForeground(new java.awt.Color(255, 0, 0));
+        jTextArea3.setRows(5);
+        jTextArea3.setBorder(null);
+        add(jTextArea3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 840, 350, 40));
 
-        jTextField5.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
-        jTextField5.setForeground(new java.awt.Color(102, 102, 102));
-        jTextField5.setBorder(null);
-        jTextField5.addMouseListener(new java.awt.event.MouseAdapter() {
+        Surname.setFont(new java.awt.Font("Trebuchet MS", 0, 24)); // NOI18N
+        Surname.setForeground(new java.awt.Color(102, 102, 102));
+        Surname.setBorder(null);
+        Surname.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField5MouseClicked(evt);
+                SurnameMouseClicked(evt);
             }
         });
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        Surname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                SurnameActionPerformed(evt);
             }
         });
-        add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 380, 370, 50));
+        add(Surname, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 630, 370, 50));
 
-        jTextField7.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
-        jTextField7.setForeground(new java.awt.Color(102, 102, 102));
-        jTextField7.setBorder(null);
-        jTextField7.addMouseListener(new java.awt.event.MouseAdapter() {
+        Dni.setFont(new java.awt.Font("Trebuchet MS", 0, 24)); // NOI18N
+        Dni.setForeground(new java.awt.Color(102, 102, 102));
+        Dni.setBorder(null);
+        Dni.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField7MouseClicked(evt);
+                DniMouseClicked(evt);
             }
         });
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        Dni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                DniActionPerformed(evt);
             }
         });
-        add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 500, 380, 50));
+        add(Dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 380, 370, 50));
 
-        jTextField6.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
-        jTextField6.setForeground(new java.awt.Color(102, 102, 102));
-        jTextField6.setBorder(null);
-        jTextField6.addMouseListener(new java.awt.event.MouseAdapter() {
+        Name.setFont(new java.awt.Font("Trebuchet MS", 0, 24)); // NOI18N
+        Name.setForeground(new java.awt.Color(102, 102, 102));
+        Name.setBorder(null);
+        Name.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField6MouseClicked(evt);
+                NameMouseClicked(evt);
             }
         });
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        Name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                NameActionPerformed(evt);
             }
         });
-        add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 380, 370, 50));
+        add(Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 500, 380, 50));
 
-        jPasswordField1.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
-        jPasswordField1.setForeground(new java.awt.Color(102, 102, 102));
-        jPasswordField1.setToolTipText("");
-        jPasswordField1.setBorder(null);
-        jPasswordField1.addMouseListener(new java.awt.event.MouseAdapter() {
+        Email.setFont(new java.awt.Font("Trebuchet MS", 0, 24)); // NOI18N
+        Email.setForeground(new java.awt.Color(102, 102, 102));
+        Email.setBorder(null);
+        Email.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPasswordField1MouseClicked(evt);
+                EmailMouseClicked(evt);
             }
         });
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        Email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                EmailActionPerformed(evt);
             }
         });
-        add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 510, 390, 30));
+        add(Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 380, 370, 50));
 
-        jPasswordField2.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
-        jPasswordField2.setForeground(new java.awt.Color(102, 102, 102));
-        jPasswordField2.setBorder(null);
-        jPasswordField2.addMouseListener(new java.awt.event.MouseAdapter() {
+        Password.setFont(new java.awt.Font("Trebuchet MS", 0, 24)); // NOI18N
+        Password.setForeground(new java.awt.Color(102, 102, 102));
+        Password.setToolTipText("");
+        Password.setBorder(null);
+        Password.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPasswordField2MouseClicked(evt);
+                PasswordMouseClicked(evt);
             }
         });
-        jPasswordField2.addActionListener(new java.awt.event.ActionListener() {
+        Password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField2ActionPerformed(evt);
+                PasswordActionPerformed(evt);
             }
         });
-        add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 630, 390, 40));
+        add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 510, 390, 30));
+
+        ConfirmPassword.setFont(new java.awt.Font("Trebuchet MS", 0, 24)); // NOI18N
+        ConfirmPassword.setForeground(new java.awt.Color(102, 102, 102));
+        ConfirmPassword.setBorder(null);
+        ConfirmPassword.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ConfirmPasswordMouseClicked(evt);
+            }
+        });
+        ConfirmPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConfirmPasswordActionPerformed(evt);
+            }
+        });
+        add(ConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 630, 390, 40));
 
         jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Boton_Register.png"))); // NOI18N
         jButton10.setBorder(null);
@@ -187,17 +200,17 @@ public class Register extends javax.swing.JPanel {
         jTextArea2.setBorder(null);
         add(jTextArea2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 890, 350, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Register.png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2200, 1080));
+        Base.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Register.png"))); // NOI18N
+        add(Base, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2200, 1080));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextArea1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextArea1MouseClicked
         System.out.println("oleee");
-   JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
+        JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
         marco.remove(this);
         marco.add(new PanelBase());
         marco.setVisible(true);
-       
+
     }//GEN-LAST:event_jTextArea1MouseClicked
 
     private void jTextArea1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextArea1KeyPressed
@@ -205,73 +218,112 @@ public class Register extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextArea1KeyPressed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-      
-        //System.out.println(Controlador.getPassw());
+       if (!Name.getText().isEmpty() && !Email.getText().isEmpty() && !Password.getText().isEmpty() && !Dni.getText().isEmpty() && !Surname.getText().isEmpty()) {
+  
+        if (Password.getText().equals(ConfirmPassword.getText()) && Dni.getText().length() == 9) {
+           Controlador.setUsuarioInside( BD.register(Controlador.con, Name.getText(), Email.getText(), Controlador.hash(Password.getText()), Dni.getText(), Surname.getText()));
+       if(Controlador.getUsuarioInside()!= null){
+            
+        JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
+        marco.remove(this);
+        marco.add(new MainPage());
+        marco.setVisible(true); 
+            MainPage.Barcelona.setVisible(false);
+            MainPage.Madrid.setVisible(false);
+            MainPage.Sevilla.setVisible(false);
+            MainPage.Coruña.setVisible(false);
+            MainPage.Zaragoza.setVisible(false);
+            MainPage.Valencia.setVisible(false);
+            MainPage.Valladolid.setVisible(false);
+            MainPage.Asturias.setVisible(false);
+            MainPage.Murcia.setVisible(false);
+         System.out.println(Controlador.getUsuarioInside());
+        }
+        } else {
 
+            jTextArea3.setText("Registro fallido, datos incorrectos");
+            Name.setText("");
+            Email.setText("");
+            Password.setText("");
+            ConfirmPassword.setText("");
+            Dni.setText("");
+            Surname.setText("");
+        }
+       }else{
+            jTextArea3.setText("Por favor rellena todos los campos!");
+            Name.setText("");
+            Email.setText("");
+            Password.setText("");
+            ConfirmPassword.setText("");
+            Dni.setText("");
+            Surname.setText("");
+       }
+        //System.out.println(Controlador.getPassw());
         //Controlador.setUsuarioInside(BD.login(Controlador.con,  Controlador.getUser(), Controlador.getPassw()));
-       
+
     }//GEN-LAST:event_jButton10ActionPerformed
 
-    private void jTextField4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField4MouseClicked
+    private void SurnameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SurnameMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4MouseClicked
+    }//GEN-LAST:event_SurnameMouseClicked
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void SurnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SurnameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_SurnameActionPerformed
 
-    private void jTextField5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField5MouseClicked
+    private void DniMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DniMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5MouseClicked
+    }//GEN-LAST:event_DniMouseClicked
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void DniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DniActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_DniActionPerformed
 
-    private void jPasswordField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordField1MouseClicked
-      
-    }//GEN-LAST:event_jPasswordField1MouseClicked
+    private void PasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PasswordMouseClicked
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_PasswordMouseClicked
+
+    private void PasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_PasswordActionPerformed
 
-    private void jPasswordField2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordField2MouseClicked
-     
-    }//GEN-LAST:event_jPasswordField2MouseClicked
+    private void ConfirmPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ConfirmPasswordMouseClicked
 
-    private void jPasswordField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField2ActionPerformed
+    }//GEN-LAST:event_ConfirmPasswordMouseClicked
+
+    private void ConfirmPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmPasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField2ActionPerformed
+    }//GEN-LAST:event_ConfirmPasswordActionPerformed
 
-    private void jTextField7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField7MouseClicked
+    private void NameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NameMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7MouseClicked
+    }//GEN-LAST:event_NameMouseClicked
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_NameActionPerformed
 
-    private void jTextField6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField6MouseClicked
+    private void EmailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EmailMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6MouseClicked
+    }//GEN-LAST:event_EmailMouseClicked
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void EmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_EmailActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Base;
+    private javax.swing.JPasswordField ConfirmPassword;
+    private javax.swing.JTextField Dni;
+    private javax.swing.JTextField Email;
+    private javax.swing.JTextField Name;
+    private javax.swing.JPasswordField Password;
+    private javax.swing.JTextField Surname;
     private javax.swing.JButton jButton10;
     private javax.swing.JFrame jFrame1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextArea jTextArea3;
     // End of variables declaration//GEN-END:variables
 }

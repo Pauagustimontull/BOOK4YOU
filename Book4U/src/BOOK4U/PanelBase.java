@@ -184,10 +184,20 @@ public class PanelBase extends javax.swing.JPanel {
        
             Controlador.setUsuarioInside(BD.login(Controlador.con,  Controlador.getUser(), Controlador.getPassw()));
         if(Controlador.getUsuarioInside()!= null){
+            
         JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
         marco.remove(this);
         marco.add(new MainPage());
         marco.setVisible(true); 
+            MainPage.Barcelona.setVisible(false);
+            MainPage.Madrid.setVisible(false);
+            MainPage.Sevilla.setVisible(false);
+            MainPage.Coruña.setVisible(false);
+            MainPage.Zaragoza.setVisible(false);
+            MainPage.Valencia.setVisible(false);
+            MainPage.Valladolid.setVisible(false);
+            MainPage.Asturias.setVisible(false);
+            MainPage.Murcia.setVisible(false);
          System.out.println(Controlador.getUsuarioInside());
         }else{
             jTextArea2.setText("Usuario o contraseña incorrectos");

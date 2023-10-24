@@ -79,6 +79,8 @@ public class Controlador {
             return null;
         }
     }
-  
+   public static String hash(String pass){
+    return hashPassword(pass);
+}
    
 }
