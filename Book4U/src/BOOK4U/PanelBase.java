@@ -13,7 +13,7 @@ import javax.swing.SwingUtilities;
  * @author alumnat
  */
 public class PanelBase extends javax.swing.JPanel {
-  
+
     public PanelBase() {
         initComponents();
     }
@@ -105,7 +105,7 @@ public class PanelBase extends javax.swing.JPanel {
 
         jTextField3.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
         jTextField3.setForeground(new java.awt.Color(102, 102, 102));
-        jTextField3.setText("E-Mail");
+        jTextField3.setText("pau@pau.com");
         jTextField3.setBorder(null);
         jTextField3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -130,7 +130,7 @@ public class PanelBase extends javax.swing.JPanel {
 
         jPasswordField1.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
         jPasswordField1.setForeground(new java.awt.Color(102, 102, 102));
-        jPasswordField1.setText("jPasswordField1");
+        jPasswordField1.setText("pau");
         jPasswordField1.setBorder(null);
         jPasswordField1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -161,10 +161,10 @@ public class PanelBase extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextArea1KeyPressed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if(Controlador.isSelected() == false){
+        if (Controlador.isSelected() == false) {
             jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/tick.png")));
             Controlador.setSelected(true);
-        }else{
+        } else {
             jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/sin-tick.png")));
             Controlador.setSelected(false);
         }
@@ -179,30 +179,30 @@ public class PanelBase extends javax.swing.JPanel {
         Controlador.setUser(jTextField3.getText());
         Controlador.setPassw(jPasswordField1.getText());
         //System.out.println(Controlador.getPassw());   
-       
 
-       
-            Controlador.setUsuarioInside(BD.login(Controlador.con,  Controlador.getUser(), Controlador.getPassw()));
-        if(Controlador.getUsuarioInside()!= null){
-            
-        JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
-        marco.remove(this);
-        marco.add(new MainPage());
-        marco.setVisible(true); 
-            MainPage.Barcelona.setVisible(false);
-            MainPage.Madrid.setVisible(false);
-            MainPage.Sevilla.setVisible(false);
-            MainPage.Coruña.setVisible(false);
-            MainPage.Zaragoza.setVisible(false);
-            MainPage.Valencia.setVisible(false);
-            MainPage.Valladolid.setVisible(false);
-            MainPage.Asturias.setVisible(false);
-            MainPage.Murcia.setVisible(false);
-         System.out.println(Controlador.getUsuarioInside());
-        }else{
+        Controlador.setUsuarioInside(BD.login(Controlador.con, Controlador.getUser(), Controlador.getPassw()));
+        if (Controlador.getUsuarioInside() != null) {
+
+            JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
+            marco.remove(this);
+            marco.add(new ProfilePage());
+            marco.setVisible(true);
+            Controlador.Setimage();
+            setearPerfil();
+            /*NewBookPage.Barcelona.setVisible(false);
+            NewBookPage.Madrid.setVisible(false);
+            NewBookPage.Sevilla.setVisible(false);
+            NewBookPage.Coruña.setVisible(false);
+            NewBookPage.Zaragoza.setVisible(false);
+            NewBookPage.Valencia.setVisible(false);
+            NewBookPage.Valladolid.setVisible(false);
+            NewBookPage.Asturias.setVisible(false);
+            NewBookPage.Murcia.setVisible(false);*/
+            System.out.println(Controlador.getUsuarioInside());
+        } else {
             jTextArea2.setText("Usuario o contraseña incorrectos");
         }
-       
+
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
@@ -210,13 +210,31 @@ public class PanelBase extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jTextField3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField3MouseClicked
-    jTextField3.setText("");
+        jTextField3.setText("");
     }//GEN-LAST:event_jTextField3MouseClicked
 
     private void jPasswordField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordField1MouseClicked
-    jPasswordField1.setText("");
+        jPasswordField1.setText("");
     }//GEN-LAST:event_jPasswordField1MouseClicked
 
+    public void setearPerfil() {
+        ProfilePage.Carga.setVisible(false);
+        ProfilePage.Negro.setVisible(false);
+        ProfilePage.jButton13.setVisible(false);
+        ProfilePage.jLabel3.setVisible(false);
+        ProfilePage.jLabel4.setVisible(false);
+        ProfilePage.jLabel5.setVisible(false);
+        ProfilePage.jLabel6.setVisible(false);
+        ProfilePage.jLabel7.setVisible(false);
+        ProfilePage.jLabel8.setVisible(false);
+        ProfilePage.jLabel9.setText("Credits: " + Controlador.getUsuarioInside().coins);
+        ProfilePage.jTextField4.setText("" + Controlador.getUsuarioInside().dni);
+        ProfilePage.jTextField3.setText("" + Controlador.getUsuarioInside().name);
+        ProfilePage.jTextField5.setText("" + Controlador.getUsuarioInside().surname);
+        ProfilePage.jTextField6.setText("" + Controlador.getUsuarioInside().adress);
+        ProfilePage.jTextField7.setText("" + Controlador.getUsuarioInside().email);
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton10;

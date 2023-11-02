@@ -12,11 +12,11 @@ import javax.swing.SwingUtilities;
  *
  * @author alumnat
  */
-public class MainPage extends javax.swing.JPanel {
+public class NewBookPage extends javax.swing.JPanel {
 
     boolean selected = false;
 
-    public MainPage() {
+    public NewBookPage() {
         initComponents();
     }
 
@@ -30,6 +30,15 @@ public class MainPage extends javax.swing.JPanel {
     private void initComponents() {
 
         jFrame1 = new javax.swing.JFrame();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jButton13 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jButton12 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         Barcelona = new javax.swing.JLabel();
         Madrid = new javax.swing.JLabel();
@@ -59,6 +68,79 @@ public class MainPage extends javax.swing.JPanel {
 
         setMaximumSize(new java.awt.Dimension(25, 25));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel9.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Credits:");
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 980, 420, 50));
+
+        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel4.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("PROFILE");
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel4MousePressed(evt);
+            }
+        });
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, 180, 50));
+
+        jLabel5.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("BOOKING HISTORY");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, 400, 50));
+
+        jLabel6.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
+        jLabel6.setText("NEW BOOKING");
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel6MousePressed(evt);
+            }
+        });
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 530, 310, 50));
+
+        jLabel7.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("BOOKING DETAILS");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 650, 380, 50));
+
+        jLabel8.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("SHOP");
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 770, 120, 50));
+
+        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/flecha.png"))); // NOI18N
+        jButton13.setBorder(null);
+        jButton13.setBorderPainted(false);
+        jButton13.setContentAreaFilled(false);
+        jButton13.setFocusPainted(false);
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+        add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 520, 70, 80));
+
+        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Sidebar.png"))); // NOI18N
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2200, 1080));
+
+        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/menu (1).png"))); // NOI18N
+        jButton12.setBorder(null);
+        jButton12.setBorderPainted(false);
+        jButton12.setContentAreaFilled(false);
+        jButton12.setFocusPainted(false);
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+        add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 80, 70));
 
         jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logOut.png"))); // NOI18N
         jButton11.setBorder(null);
@@ -159,7 +241,7 @@ public class MainPage extends javax.swing.JPanel {
         Asturias.setVisible(false);
         Murcia.setVisible(false);
         Resultado.setText("");
-            Resultado1.setText("");
+        Resultado1.setText("");
         String userInput = jTextField4.getText().toUpperCase();
 
         if (userInput.equals("BARCELONA")) {
@@ -208,6 +290,60 @@ public class MainPage extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4KeyTyped
 
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        jButton13.setVisible(false);
+        jLabel3.setVisible(false);
+        jLabel4.setVisible(false);
+        jLabel5.setVisible(false);
+        jLabel6.setVisible(false);
+        jLabel7.setVisible(false);
+        jLabel8.setVisible(false);
+        jLabel9.setVisible(false);
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        jButton13.setVisible(true);
+        jLabel3.setVisible(true);
+        jLabel4.setVisible(true);
+        jLabel5.setVisible(true);
+        jLabel6.setVisible(true);
+        jLabel7.setVisible(true);
+        jLabel8.setVisible(true);
+        jLabel9.setVisible(true);
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jLabel6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MousePressed
+
+    }//GEN-LAST:event_jLabel6MousePressed
+
+    private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
+        JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
+        marco.remove(this);
+        marco.add(new ProfilePage());
+        marco.setVisible(true);
+        setearPerfil();
+
+    }//GEN-LAST:event_jLabel4MousePressed
+
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
+        marco.remove(this);
+        marco.add(new ShopPage());
+        marco.setVisible(true);
+         ShopPage.jLabel9.setText("Credits: " + Controlador.getUsuarioInside().coins);
+    }//GEN-LAST:event_jLabel8MouseClicked
+    public void setearPerfil() {
+        ProfilePage.Carga.setVisible(false);
+        ProfilePage.Negro.setVisible(false);
+        ProfilePage.jLabel9.setText("Credits: " + Controlador.getUsuarioInside().coins);
+        ProfilePage.jTextField4.setText("" + Controlador.getUsuarioInside().dni);
+        ProfilePage.jTextField3.setText("" + Controlador.getUsuarioInside().name);
+        ProfilePage.jTextField5.setText("" + Controlador.getUsuarioInside().surname);
+        ProfilePage.jTextField6.setText("" + Controlador.getUsuarioInside().adress);
+        ProfilePage.jTextField7.setText("" + Controlador.getUsuarioInside().email);
+        Controlador.Setimage();
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel Asturias;
@@ -223,8 +359,17 @@ public class MainPage extends javax.swing.JPanel {
     public static javax.swing.JLabel Zaragoza;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    public static javax.swing.JButton jButton13;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
+    public static javax.swing.JLabel jLabel3;
+    public static javax.swing.JLabel jLabel4;
+    public static javax.swing.JLabel jLabel5;
+    public static javax.swing.JLabel jLabel6;
+    public static javax.swing.JLabel jLabel7;
+    public static javax.swing.JLabel jLabel8;
+    public static javax.swing.JLabel jLabel9;
     private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }

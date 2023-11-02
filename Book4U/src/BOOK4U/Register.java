@@ -218,38 +218,38 @@ public class Register extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextArea1KeyPressed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-       if (!Name.getText().isEmpty() && !Email.getText().isEmpty() && !Password.getText().isEmpty() && !Dni.getText().isEmpty() && !Surname.getText().isEmpty()) {
-  
-        if (Password.getText().equals(ConfirmPassword.getText()) && Dni.getText().length() == 9) {
-           Controlador.setUsuarioInside( BD.register(Controlador.con, Name.getText(), Email.getText(), Controlador.hash(Password.getText()), Dni.getText(), Surname.getText()));
-       if(Controlador.getUsuarioInside()!= null){
-            
-        JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
-        marco.remove(this);
-        marco.add(new MainPage());
-        marco.setVisible(true); 
-            MainPage.Barcelona.setVisible(false);
-            MainPage.Madrid.setVisible(false);
-            MainPage.Sevilla.setVisible(false);
-            MainPage.Coruña.setVisible(false);
-            MainPage.Zaragoza.setVisible(false);
-            MainPage.Valencia.setVisible(false);
-            MainPage.Valladolid.setVisible(false);
-            MainPage.Asturias.setVisible(false);
-            MainPage.Murcia.setVisible(false);
-         System.out.println(Controlador.getUsuarioInside());
-        }
-        } else {
+        if (!Name.getText().isEmpty() && !Email.getText().isEmpty() && !Password.getText().isEmpty() && !Dni.getText().isEmpty() && !Surname.getText().isEmpty()) {
 
-            jTextArea3.setText("Registro fallido, datos incorrectos");
-            Name.setText("");
-            Email.setText("");
-            Password.setText("");
-            ConfirmPassword.setText("");
-            Dni.setText("");
-            Surname.setText("");
-        }
-       }else{
+            if (Password.getText().equals(ConfirmPassword.getText()) && Dni.getText().length() == 9) {
+                Controlador.setUsuarioInside(BD.register(Controlador.con, Name.getText(), Email.getText(), Controlador.hash(Password.getText()), Dni.getText(), Surname.getText()));
+                if (Controlador.getUsuarioInside() != null) {
+
+                    JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
+                    marco.remove(this);
+                    marco.add(new NewBookPage());
+                    marco.setVisible(true);
+                    NewBookPage.Barcelona.setVisible(false);
+                    NewBookPage.Madrid.setVisible(false);
+                    NewBookPage.Sevilla.setVisible(false);
+                    NewBookPage.Coruña.setVisible(false);
+                    NewBookPage.Zaragoza.setVisible(false);
+                    NewBookPage.Valencia.setVisible(false);
+                    NewBookPage.Valladolid.setVisible(false);
+                    NewBookPage.Asturias.setVisible(false);
+                    NewBookPage.Murcia.setVisible(false);
+                    System.out.println(Controlador.getUsuarioInside());
+                }
+            } else {
+
+                jTextArea3.setText("Registro fallido, datos incorrectos");
+                Name.setText("");
+                Email.setText("");
+                Password.setText("");
+                ConfirmPassword.setText("");
+                Dni.setText("");
+                Surname.setText("");
+            }
+        } else {
             jTextArea3.setText("Por favor rellena todos los campos!");
             Name.setText("");
             Email.setText("");
@@ -257,7 +257,7 @@ public class Register extends javax.swing.JPanel {
             ConfirmPassword.setText("");
             Dni.setText("");
             Surname.setText("");
-       }
+        }
         //System.out.println(Controlador.getPassw());
         //Controlador.setUsuarioInside(BD.login(Controlador.con,  Controlador.getUser(), Controlador.getPassw()));
 

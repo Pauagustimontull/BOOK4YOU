@@ -4,20 +4,40 @@
  */
 package BOOK4U;
 
+import static BOOK4U.ProfilePage.Carga;
+import static BOOK4U.ProfilePage.Negro;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import java.sql.Blob;
+import java.sql.SQLException;
+
 /**
  *
  * @author Pau
  */
 public class Controlador {
-   private static boolean selected = false;
-   private static String user = "";
-   private static String passw = "";
-   private static Usuario usuarioInside = null;
-   public static Connection con;
+
+    private static boolean selected = false;
+    private static String user = "";
+    private static String passw = "";
+    private static Usuario usuarioInside = null;
+    public static Connection con;
+    public static int cont = 0;
+
+    public static int getCont() {
+        return cont;
+    }
+
+    public static void setCont(int cont) {
+        Controlador.cont = cont;
+    }
+
     public static Usuario getUsuarioInside() {
         return usuarioInside;
     }
@@ -25,7 +45,7 @@ public class Controlador {
     public static void setUsuarioInside(Usuario usuarioInside) {
         Controlador.usuarioInside = usuarioInside;
     }
-   
+
     public static String getUser() {
         return user;
     }
@@ -42,7 +62,7 @@ public class Controlador {
         Controlador.passw = hashPassword(passw);
         //System.out.println(Controlador.passw);
     }
-   
+
     public static boolean isSelected() {
         return selected;
     }
@@ -51,7 +71,6 @@ public class Controlador {
         Controlador.selected = selected;
     }
 
-   
     public static String hashPassword(String password) {
         try {
             // Crear una instancia de MessageDigest con el algoritmo SHA-256
@@ -79,8 +98,26 @@ public class Controlador {
             return null;
         }
     }
-   public static String hash(String pass){
-    return hashPassword(pass);
-}
-   
+
+    public static String hash(String pass) {
+        return hashPassword(pass);
+    }
+
+    public static void Setimage() {
+        Blob blob = usuarioInside.image;
+        byte[] imagenBytes = null;
+        try {
+            imagenBytes = blob.getBytes(1, (int) blob.length());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+// Convierte los datos binarios en un ImageIcon
+        ImageIcon icono = new ImageIcon(imagenBytes);
+
+// Asigna el ImageIcon al JLabel
+        ProfilePage.jLabel2.setIcon(icono);
+
+    }
+
 }
