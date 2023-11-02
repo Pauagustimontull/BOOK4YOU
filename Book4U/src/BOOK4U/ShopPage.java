@@ -47,7 +47,6 @@ public class ShopPage extends javax.swing.JPanel {
         jButton13 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel10.setText(String.valueOf(Controlador.getCont()));
         jButton10 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
@@ -125,14 +124,13 @@ public class ShopPage extends javax.swing.JPanel {
 
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Sidebar.png"))); // NOI18N
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2200, 1080));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-320, 110, 2200, 1080));
 
         jLabel10.setBackground(new java.awt.Color(0, 0, 0));
         jLabel10.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
         add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 400, 160, 60));
 
         jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Buy.png"))); // NOI18N
-        jButton10.setText("0");
         jButton10.setBorder(null);
         jButton10.setBorderPainted(false);
         jButton10.setContentAreaFilled(false);
@@ -144,7 +142,7 @@ public class ShopPage extends javax.swing.JPanel {
                 jButton10ActionPerformed(evt);
             }
         });
-        add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 700, 460, 90));
+        add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 740, 460, 90));
 
         jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/mas.png"))); // NOI18N
         jButton15.setBorder(null);
@@ -279,7 +277,7 @@ public class ShopPage extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-       JFrame jPaypal = new JFrame();
+      
        
     }//GEN-LAST:event_jButton10ActionPerformed
     public void carga10() {
