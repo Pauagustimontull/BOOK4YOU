@@ -9,8 +9,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 /**
@@ -24,6 +26,14 @@ public class ShopPage extends javax.swing.JPanel {
 
     public ShopPage() {
         initComponents();
+        Carga.setVisible(false);
+        boton_paypal.setVisible(false);
+        base_paypal.setVisible(false);
+        User_Paypal.setVisible(false);
+        password_paypal.setVisible(false);
+        jButton16.setVisible(false);
+        User_Paypal1.setVisible(false);
+
     }
 
     /**
@@ -36,8 +46,20 @@ public class ShopPage extends javax.swing.JPanel {
     private void initComponents() {
 
         jFrame1 = new javax.swing.JFrame();
+        jButton16 = new javax.swing.JButton();
+        password_paypal = new javax.swing.JPasswordField();
+        User_Paypal1 = new javax.swing.JTextField();
+        User_Paypal = new javax.swing.JTextField();
+        base_paypal = new javax.swing.JLabel();
+        Carga = new javax.swing.JLabel();
+        boton_paypal = new javax.swing.JLabel();
+        jButton17 = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        base_paypal.setText(String.valueOf(Controlador.getCont()));
+        jLabel12 = new javax.swing.JLabel();
+        base_paypal.setText(String.valueOf(Controlador.getCont()));
         jLabel11 = new javax.swing.JLabel();
-        jLabel10.setText(String.valueOf(Controlador.getCont()));
+        base_paypal.setText(String.valueOf(Controlador.getCont()));
         jLabel9 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -46,15 +68,12 @@ public class ShopPage extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jButton13 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jButton10 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        Carga = new javax.swing.JLabel();
-        Negro = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -69,6 +88,111 @@ public class ShopPage extends javax.swing.JPanel {
 
         setMaximumSize(new java.awt.Dimension(25, 25));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pay.png"))); // NOI18N
+        jButton16.setBorder(null);
+        jButton16.setBorderPainted(false);
+        jButton16.setContentAreaFilled(false);
+        jButton16.setFocusPainted(false);
+        jButton16.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pay_hover.png"))); // NOI18N
+        jButton16.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pay_hover.png"))); // NOI18N
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
+        add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 660, 360, 80));
+
+        password_paypal.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        password_paypal.setForeground(new java.awt.Color(102, 102, 102));
+        password_paypal.setText("password");
+        password_paypal.setBorder(null);
+        password_paypal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                password_paypalMouseClicked(evt);
+            }
+        });
+        password_paypal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                password_paypalActionPerformed(evt);
+            }
+        });
+        add(password_paypal, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 540, 350, 40));
+
+        User_Paypal1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        User_Paypal1.setForeground(new java.awt.Color(0, 153, 255));
+        User_Paypal1.setBorder(null);
+        User_Paypal1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                User_Paypal1MouseClicked(evt);
+            }
+        });
+        User_Paypal1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                User_Paypal1ActionPerformed(evt);
+            }
+        });
+        add(User_Paypal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 430, 440, 30));
+
+        User_Paypal.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        User_Paypal.setForeground(new java.awt.Color(102, 102, 102));
+        User_Paypal.setText("E-Mail");
+        User_Paypal.setBorder(null);
+        User_Paypal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                User_PaypalMouseClicked(evt);
+            }
+        });
+        User_Paypal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                User_PaypalActionPerformed(evt);
+            }
+        });
+        add(User_Paypal, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 490, 350, 30));
+
+        base_paypal.setForeground(new java.awt.Color(102, 102, 102));
+        base_paypal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/paypal.png"))); // NOI18N
+        add(base_paypal, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 220, 600, 620));
+
+        Carga.setForeground(new java.awt.Color(102, 102, 102));
+        Carga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/03-42-15-221_512.gif"))); // NOI18N
+        Carga.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                CargaComponentHidden(evt);
+            }
+        });
+        add(Carga, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 480, 210, 240));
+
+        boton_paypal.setForeground(new java.awt.Color(102, 102, 102));
+        boton_paypal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/negro.png"))); // NOI18N
+        add(boton_paypal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2200, 1080));
+
+        jButton17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/usuario (1).png"))); // NOI18N
+        jButton17.setBorder(null);
+        jButton17.setBorderPainted(false);
+        jButton17.setContentAreaFilled(false);
+        jButton17.setFocusPainted(false);
+        jButton17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton17ActionPerformed(evt);
+            }
+        });
+        add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(1740, 20, 70, 70));
+
+        jLabel13.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel13.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
+        jLabel13.setText("Cost: 0 €");
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 480, 240, 60));
+
+        jLabel12.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel12.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
+        jLabel12.setText("0");
+        jLabel12.setToolTipText("");
+        jLabel12.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jLabel12.setAutoscrolls(true);
+        jLabel12.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        jLabel12.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1310, 400, 140, 60));
 
         jLabel11.setBackground(new java.awt.Color(0, 0, 0));
         jLabel11.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
@@ -102,12 +226,22 @@ public class ShopPage extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("BOOKING HISTORY");
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, 400, 50));
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
         jLabel4.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("PROFILE");
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, 180, 50));
 
         jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/flecha.png"))); // NOI18N
@@ -124,11 +258,8 @@ public class ShopPage extends javax.swing.JPanel {
 
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Sidebar.png"))); // NOI18N
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-320, 110, 2200, 1080));
-
-        jLabel10.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel10.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 400, 160, 60));
+        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2200, 1080));
 
         jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Buy.png"))); // NOI18N
         jButton10.setBorder(null);
@@ -155,7 +286,7 @@ public class ShopPage extends javax.swing.JPanel {
                 jButton15ActionPerformed(evt);
             }
         });
-        add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 410, 40, 40));
+        add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1460, 410, 40, 40));
 
         jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/menos.png"))); // NOI18N
         jButton14.setBorder(null);
@@ -168,7 +299,7 @@ public class ShopPage extends javax.swing.JPanel {
                 jButton14ActionPerformed(evt);
             }
         });
-        add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 410, 40, 40));
+        add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 410, 30, 40));
 
         jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/menu (1).png"))); // NOI18N
         jButton12.setBorder(null);
@@ -199,19 +330,6 @@ public class ShopPage extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/shop.png"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2200, 1080));
-
-        Carga.setForeground(new java.awt.Color(102, 102, 102));
-        Carga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/03-42-15-221_512.gif"))); // NOI18N
-        Carga.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentHidden(java.awt.event.ComponentEvent evt) {
-                CargaComponentHidden(evt);
-            }
-        });
-        add(Carga, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 480, 210, 240));
-
-        Negro.setForeground(new java.awt.Color(102, 102, 102));
-        Negro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/negro.png"))); // NOI18N
-        add(Negro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2200, 1080));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
@@ -267,19 +385,116 @@ public class ShopPage extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel6MousePressed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        Controlador.setCont(Controlador.getCont()-1);
-        jLabel10.setText(String.valueOf(Controlador.getCont()));
+        if(Controlador.getCont()>0){
+            Controlador.setCont(Controlador.getCont() - 1);
+        jLabel12.setText(String.valueOf(Controlador.getCont()));
+        jLabel13.setText("Cost: " + Controlador.getCont() * 10 + " €");
+        }
+        
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-       Controlador.setCont(Controlador.getCont()+1);
-        jLabel10.setText(String.valueOf(Controlador.getCont()));
+        Controlador.setCont(Controlador.getCont() + 1);
+        jLabel12.setText(String.valueOf(Controlador.getCont()));
+        jLabel13.setText("Cost: " + Controlador.getCont() * 10 + " €");
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-      
-       
+        Carga.setVisible(true);
+        boton_paypal.setVisible(true);
+
+        for (int i = 2; i > 0; i--) {
+            System.out.println("Quedan " + i + " segundos.");
+            try {
+                Thread.sleep(1000); // Pausa de 1 segundo
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        }
+        base_paypal.setVisible(true);
+        User_Paypal.setVisible(true);
+        User_Paypal1.setVisible(true);
+        if (Controlador.cont < 0) {
+            int pos = Math.abs(Controlador.cont);
+            User_Paypal1.setText("Are you going to make a transaction with the refund of " + pos + "0 €?");
+        } else {
+            User_Paypal1.setText("Are you going to make a transaction with the amount of " + Controlador.cont + "0 €?");
+
+        }
+        password_paypal.setVisible(true);
+        jButton16.setVisible(true);
+
+// Luego, en el manejador de eventos para mostrar el cuadro de diálogo:
+
     }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void password_paypalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_password_paypalMouseClicked
+        password_paypal.setText("");
+    }//GEN-LAST:event_password_paypalMouseClicked
+
+    private void password_paypalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_password_paypalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_password_paypalActionPerformed
+
+    private void User_PaypalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_User_PaypalMouseClicked
+        User_Paypal.setText("");
+    }//GEN-LAST:event_User_PaypalMouseClicked
+
+    private void User_PaypalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_User_PaypalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_User_PaypalActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        boton_paypal.setVisible(false);
+        Carga.setVisible(false);
+        for (int i = 2; i > 0; i--) {
+            System.out.println("Quedan " + i + " segundos.");
+            try {
+                Thread.sleep(1000); // Pausa de 1 segundo
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        }
+        BD.shop(Controlador.con, Controlador.cont);
+        base_paypal.setVisible(false);
+        User_Paypal.setVisible(false);
+        User_Paypal1.setVisible(false);
+        User_Paypal1.setText("");
+        password_paypal.setVisible(false);
+        jButton16.setVisible(false);
+        jLabel12.setText("0");
+        jLabel13.setText("Cost: 0 €");
+        Controlador.cont = 0;
+    }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void User_Paypal1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_User_Paypal1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_User_Paypal1MouseClicked
+
+    private void User_Paypal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_User_Paypal1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_User_Paypal1ActionPerformed
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
+        marco.remove(this);
+        marco.add(new ProfilePage());
+        marco.setVisible(true);
+
+    }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+         JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
+        marco.remove(this);
+        marco.add(new UserHistory());
+        marco.setVisible(true);
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton17ActionPerformed
     public void carga10() {
 
         int segundos = 5;
@@ -296,23 +511,29 @@ public class ShopPage extends javax.swing.JPanel {
 
         Controlador.Setimage();
         Carga.setVisible(false);
-        Negro.setVisible(false);
+        boton_paypal.setVisible(false);
 
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel Carga;
-    public static javax.swing.JLabel Negro;
+    private javax.swing.JTextField User_Paypal;
+    private javax.swing.JTextField User_Paypal1;
+    public static javax.swing.JLabel base_paypal;
+    public static javax.swing.JLabel boton_paypal;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     public static javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
+    public static javax.swing.JButton jButton16;
+    public static javax.swing.JButton jButton17;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
-    public static javax.swing.JLabel jLabel10;
     public static javax.swing.JLabel jLabel11;
+    public static javax.swing.JLabel jLabel12;
+    public static javax.swing.JLabel jLabel13;
     public static javax.swing.JLabel jLabel3;
     public static javax.swing.JLabel jLabel4;
     public static javax.swing.JLabel jLabel5;
@@ -320,5 +541,6 @@ public class ShopPage extends javax.swing.JPanel {
     public static javax.swing.JLabel jLabel7;
     public static javax.swing.JLabel jLabel8;
     public static javax.swing.JLabel jLabel9;
+    private javax.swing.JPasswordField password_paypal;
     // End of variables declaration//GEN-END:variables
 }

@@ -16,6 +16,7 @@ public class PanelBase extends javax.swing.JPanel {
 
     public PanelBase() {
         initComponents();
+         
     }
 
     /**
@@ -149,7 +150,7 @@ public class PanelBase extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextArea1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextArea1MouseClicked
-        System.out.println("oleee");
+
         JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
         marco.remove(this);
         marco.add(new Register());

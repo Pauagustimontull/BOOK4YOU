@@ -5,6 +5,10 @@
  */
 package BOOK4U;
 
+import java.sql.Blob;
+import java.sql.SQLException;
+import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
@@ -18,6 +22,11 @@ public class NewBookPage extends javax.swing.JPanel {
 
     public NewBookPage() {
         initComponents();
+        jLabel9.setText("Credits: " + Controlador.getUsuarioInside().coins);
+        jScrollPane1.setVisible(false);
+        Barcelona1.setVisible(false);
+        Barcelona2.setVisible(false);
+        jButton14.setVisible(false);
     }
 
     /**
@@ -30,6 +39,10 @@ public class NewBookPage extends javax.swing.JPanel {
     private void initComponents() {
 
         jFrame1 = new javax.swing.JFrame();
+        jButton15 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
+        Barcelona2 = new javax.swing.JLabel();
+        Barcelona1 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -37,7 +50,9 @@ public class NewBookPage extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jButton13 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        casa = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
         jButton12 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         Barcelona = new javax.swing.JLabel();
@@ -69,6 +84,36 @@ public class NewBookPage extends javax.swing.JPanel {
         setMaximumSize(new java.awt.Dimension(25, 25));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/usuario (1).png"))); // NOI18N
+        jButton15.setBorder(null);
+        jButton15.setBorderPainted(false);
+        jButton15.setContentAreaFilled(false);
+        jButton15.setFocusPainted(false);
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
+        add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1720, 20, 70, 70));
+
+        jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/proximo.png"))); // NOI18N
+        jButton14.setBorder(null);
+        jButton14.setBorderPainted(false);
+        jButton14.setContentAreaFilled(false);
+        jButton14.setFocusPainted(false);
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+        add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(1610, 970, 70, -1));
+
+        Barcelona2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Marco.png"))); // NOI18N
+        add(Barcelona2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1370, 600, 500, 370));
+
+        Barcelona1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/casa_base.png"))); // NOI18N
+        add(Barcelona1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1420, 660, 400, 260));
+
         jLabel9.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Credits:");
@@ -88,6 +133,11 @@ public class NewBookPage extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("BOOKING HISTORY");
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, 400, 50));
 
         jLabel6.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
@@ -126,9 +176,24 @@ public class NewBookPage extends javax.swing.JPanel {
         });
         add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 520, 70, 80));
 
-        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Sidebar.png"))); // NOI18N
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2200, 1080));
+        casa.setForeground(new java.awt.Color(102, 102, 102));
+        casa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Sidebar.png"))); // NOI18N
+        add(casa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2200, 1080));
+
+        jScrollPane1.setBackground(new java.awt.Color(51, 255, 153));
+
+        jList1.setBackground(new java.awt.Color(137, 236, 190));
+        jList1.setFont(new java.awt.Font("Trebuchet MS", 0, 36)); // NOI18N
+        jList1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        jList1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jList1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jList1MouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jList1);
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 570, 600));
 
         jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/menu (1).png"))); // NOI18N
         jButton12.setBorder(null);
@@ -231,6 +296,10 @@ public class NewBookPage extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        Barcelona1.setVisible(false);
+        Barcelona2.setVisible(false);
+        jButton14.setVisible(false);
+        jList1.removeAll();
         Barcelona.setVisible(false);
         Madrid.setVisible(false);
         Sevilla.setVisible(false);
@@ -240,32 +309,55 @@ public class NewBookPage extends javax.swing.JPanel {
         Valladolid.setVisible(false);
         Asturias.setVisible(false);
         Murcia.setVisible(false);
+        jScrollPane1.setVisible(false);
         Resultado.setText("");
         Resultado1.setText("");
         String userInput = jTextField4.getText().toUpperCase();
 
         if (userInput.equals("BARCELONA")) {
+            jScrollPane1.setVisible(true);
             Barcelona.setVisible(true);
         } else if (userInput.equals("MADRID")) {
+            jScrollPane1.setVisible(true);
             Madrid.setVisible(true);
         } else if (userInput.equals("SEVILLA")) {
+            jScrollPane1.setVisible(true);
             Sevilla.setVisible(true);
         } else if (userInput.equals("CORUÑA")) {
+            jScrollPane1.setVisible(true);
             Coruña.setVisible(true);
         } else if (userInput.equals("ZARAGOZA")) {
+            jScrollPane1.setVisible(true);
             Zaragoza.setVisible(true);
         } else if (userInput.equals("VALENCIA")) {
+            jScrollPane1.setVisible(true);
             Valencia.setVisible(true);
         } else if (userInput.equals("VALLADOLID")) {
+            jScrollPane1.setVisible(true);
             Valladolid.setVisible(true);
         } else if (userInput.equals("ASTURIAS")) {
+            jScrollPane1.setVisible(true);
             Asturias.setVisible(true);
         } else if (userInput.equals("MURCIA")) {
+            jScrollPane1.setVisible(true);
             Murcia.setVisible(true);
         } else {
             Resultado.setText("There are not results ");
             Resultado1.setText("with the name '" + userInput + "'");
+            jScrollPane1.setVisible(false);
         }
+        BD.Search(Controlador.con, userInput);
+        Apartamento[] miarray = new Apartamento[Controlador.apartamentos.size()];
+        miarray = Controlador.apartamentos.toArray(miarray);
+
+        DefaultListModel modelo = new DefaultListModel();
+        for (int i = 0; i < Controlador.apartamentos.size(); i++) {
+            String relleno = miarray[i].getPlace() + ", " + miarray[i].getName();
+            modelo.addElement(relleno);
+
+        }
+
+        jList1.setModel(modelo);
 
     }//GEN-LAST:event_jButton10ActionPerformed
 
@@ -292,7 +384,7 @@ public class NewBookPage extends javax.swing.JPanel {
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         jButton13.setVisible(false);
-        jLabel3.setVisible(false);
+        casa.setVisible(false);
         jLabel4.setVisible(false);
         jLabel5.setVisible(false);
         jLabel6.setVisible(false);
@@ -303,7 +395,7 @@ public class NewBookPage extends javax.swing.JPanel {
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         jButton13.setVisible(true);
-        jLabel3.setVisible(true);
+        casa.setVisible(true);
         jLabel4.setVisible(true);
         jLabel5.setVisible(true);
         jLabel6.setVisible(true);
@@ -321,7 +413,7 @@ public class NewBookPage extends javax.swing.JPanel {
         marco.remove(this);
         marco.add(new ProfilePage());
         marco.setVisible(true);
-        setearPerfil();
+
 
     }//GEN-LAST:event_jLabel4MousePressed
 
@@ -330,24 +422,69 @@ public class NewBookPage extends javax.swing.JPanel {
         marco.remove(this);
         marco.add(new ShopPage());
         marco.setVisible(true);
-         ShopPage.jLabel9.setText("Credits: " + Controlador.getUsuarioInside().coins);
+        ShopPage.jLabel9.setText("Credits: " + Controlador.getUsuarioInside().coins);
     }//GEN-LAST:event_jLabel8MouseClicked
-    public void setearPerfil() {
-        ProfilePage.Carga.setVisible(false);
-        ProfilePage.Negro.setVisible(false);
-        ProfilePage.jLabel9.setText("Credits: " + Controlador.getUsuarioInside().coins);
-        ProfilePage.jTextField4.setText("" + Controlador.getUsuarioInside().dni);
-        ProfilePage.jTextField3.setText("" + Controlador.getUsuarioInside().name);
-        ProfilePage.jTextField5.setText("" + Controlador.getUsuarioInside().surname);
-        ProfilePage.jTextField6.setText("" + Controlador.getUsuarioInside().adress);
-        ProfilePage.jTextField7.setText("" + Controlador.getUsuarioInside().email);
-        Controlador.Setimage();
+
+    private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
+
+        imagenes(Controlador.apartamentos.get(jList1.getAnchorSelectionIndex()).getImage());
+        Barcelona1.setVisible(true);
+        Barcelona2.setVisible(true);
+        jButton14.setVisible(true);
+    }//GEN-LAST:event_jList1MouseClicked
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+
+        JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
+        marco.remove(this);
+        marco.add(new NewbookPageCalendar());
+        marco.setVisible(true);
+        imagenes2(Controlador.apartamentos.get(jList1.getAnchorSelectionIndex()).getImage());
+        NewbookPageCalendar.ap = Controlador.apartamentos.get(jList1.getAnchorSelectionIndex());
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
+        marco.remove(this);
+        marco.add(new UserHistory());
+        marco.setVisible(true);
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton15ActionPerformed
+    public void imagenes(Blob imagen) {
+        Blob blob = imagen;
+        byte[] imagenBytes = null;
+        try {
+            imagenBytes = blob.getBytes(1, (int) blob.length());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        ImageIcon icono = new ImageIcon(imagenBytes);
+        Barcelona1.setIcon(icono);
 
     }
+
+    public void imagenes2(Blob imagen) {
+        Blob blob = imagen;
+        byte[] imagenBytes = null;
+        try {
+            imagenBytes = blob.getBytes(1, (int) blob.length());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        ImageIcon icono = new ImageIcon(imagenBytes);
+        NewbookPageCalendar.Barcelona1.setIcon(icono);
+
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel Asturias;
     public static javax.swing.JLabel Barcelona;
+    public static javax.swing.JLabel Barcelona1;
+    public static javax.swing.JLabel Barcelona2;
     public static javax.swing.JLabel Coruña;
     public static javax.swing.JLabel Madrid;
     public static javax.swing.JLabel Murcia;
@@ -357,19 +494,23 @@ public class NewBookPage extends javax.swing.JPanel {
     public static javax.swing.JLabel Valencia;
     public static javax.swing.JLabel Valladolid;
     public static javax.swing.JLabel Zaragoza;
+    public static javax.swing.JLabel casa;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     public static javax.swing.JButton jButton13;
+    public static javax.swing.JButton jButton14;
+    public static javax.swing.JButton jButton15;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
-    public static javax.swing.JLabel jLabel3;
     public static javax.swing.JLabel jLabel4;
     public static javax.swing.JLabel jLabel5;
     public static javax.swing.JLabel jLabel6;
     public static javax.swing.JLabel jLabel7;
     public static javax.swing.JLabel jLabel8;
     public static javax.swing.JLabel jLabel9;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }

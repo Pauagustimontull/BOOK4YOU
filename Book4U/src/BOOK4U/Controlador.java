@@ -16,13 +16,18 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 /**
  *
  * @author Pau
  */
 public class Controlador {
-
+    public static ArrayList<Apartamento> apartamentos = new ArrayList<>();
+     public static ArrayList<Reserva> res = new ArrayList<>();
     private static boolean selected = false;
     private static String user = "";
     private static String passw = "";
@@ -119,5 +124,28 @@ public class Controlador {
         ProfilePage.jLabel2.setIcon(icono);
 
     }
+    public static Blob buscar(int in){
+       
+Apartamento apartamentoEncontrado = null;
 
+for (Apartamento apartamento : Controlador.apartamentos) {
+    
+    if (apartamento.id == in) {
+        apartamentoEncontrado = apartamento;
+    
+        break;  // Terminamos el bucle una vez que encontramos el apartamento
+    }
+}
+        
+return apartamentoEncontrado.getImage();
+    }
+public static boolean esDNIValido(String dni) {
+        // Expresión regular para un DNI español (8 dígitos seguidos de una letra)
+        String regex = "\\d{8}[a-zA-Z]";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(dni);
+
+        // Comprobar si la cadena coincide con la expresión regular
+        return matcher.matches();
+    }
 }

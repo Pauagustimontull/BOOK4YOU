@@ -31,6 +31,7 @@ public class Register extends javax.swing.JPanel {
     private void initComponents() {
 
         jFrame1 = new javax.swing.JFrame();
+        jLabel15 = new javax.swing.JLabel();
         jTextArea3 = new javax.swing.JTextArea();
         Surname = new javax.swing.JTextField();
         Dni = new javax.swing.JTextField();
@@ -56,6 +57,11 @@ public class Register extends javax.swing.JPanel {
 
         setMaximumSize(new java.awt.Dimension(25, 25));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel15.setFont(new java.awt.Font("Trebuchet MS", 0, 24)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel15.setFocusable(false);
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 830, 500, 50));
 
         jTextArea3.setEditable(false);
         jTextArea3.setBackground(new java.awt.Color(255, 255, 255));
@@ -189,7 +195,7 @@ public class Register extends javax.swing.JPanel {
                 jTextArea1KeyPressed(evt);
             }
         });
-        add(jTextArea1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 890, 110, 40));
+        add(jTextArea1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 890, 110, 50));
 
         jTextArea2.setEditable(false);
         jTextArea2.setBackground(new java.awt.Color(255, 255, 255));
@@ -198,7 +204,7 @@ public class Register extends javax.swing.JPanel {
         jTextArea2.setRows(5);
         jTextArea2.setText("Do you have Account? ");
         jTextArea2.setBorder(null);
-        add(jTextArea2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 890, 350, 40));
+        add(jTextArea2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 890, 350, 50));
 
         Base.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Register.png"))); // NOI18N
         add(Base, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2200, 1080));
@@ -218,6 +224,10 @@ public class Register extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextArea1KeyPressed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+       
+        if (Controlador.esDNIValido(Dni.getText())) {
+            
+        
         if (!Name.getText().isEmpty() && !Email.getText().isEmpty() && !Password.getText().isEmpty() && !Dni.getText().isEmpty() && !Surname.getText().isEmpty()) {
 
             if (Password.getText().equals(ConfirmPassword.getText()) && Dni.getText().length() == 9) {
@@ -257,6 +267,9 @@ public class Register extends javax.swing.JPanel {
             ConfirmPassword.setText("");
             Dni.setText("");
             Surname.setText("");
+        }
+        } else {
+            jLabel15.setText("El DNI no es válido.");
         }
         //System.out.println(Controlador.getPassw());
         //Controlador.setUsuarioInside(BD.login(Controlador.con,  Controlador.getUser(), Controlador.getPassw()));
@@ -322,6 +335,7 @@ public class Register extends javax.swing.JPanel {
     private javax.swing.JTextField Surname;
     private javax.swing.JButton jButton10;
     private javax.swing.JFrame jFrame1;
+    public static javax.swing.JLabel jLabel15;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;

@@ -12,6 +12,9 @@ import java.io.IOException;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 /**
  *
@@ -24,6 +27,16 @@ public class ProfilePage extends javax.swing.JPanel {
 
     public ProfilePage() {
         initComponents();
+        Carga.setVisible(false);
+        Negro.setVisible(false);
+       jLabel9.setText("Credits: " + Controlador.getUsuarioInside().coins);
+        jTextField4.setText("" + Controlador.getUsuarioInside().dni);
+        jTextField3.setText("" + Controlador.getUsuarioInside().name);
+        jTextField5.setText("" + Controlador.getUsuarioInside().surname);
+        jTextField6.setText("" + Controlador.getUsuarioInside().adress);
+        jTextField7.setText("" + Controlador.getUsuarioInside().email);
+        Controlador.Setimage();
+        BD.obtenerApartamentos(Controlador.con);
     }
 
     /**
@@ -36,6 +49,7 @@ public class ProfilePage extends javax.swing.JPanel {
     private void initComponents() {
 
         jFrame1 = new javax.swing.JFrame();
+        jButton14 = new javax.swing.JButton();
         Lapiz_User6 = new javax.swing.JLabel();
         Lapiz_User6.setVisible(false);
         Lapiz_User7 = new javax.swing.JLabel();
@@ -48,6 +62,7 @@ public class ProfilePage extends javax.swing.JPanel {
         Lapiz_User10.setVisible(false);
         Lapiz_User1 = new javax.swing.JLabel();
         Lapiz_User2 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         Lapiz_User3 = new javax.swing.JLabel();
         Lapiz_User4 = new javax.swing.JLabel();
         Lapiz_User5 = new javax.swing.JLabel();
@@ -91,6 +106,18 @@ public class ProfilePage extends javax.swing.JPanel {
         setMaximumSize(new java.awt.Dimension(25, 25));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/usuario (1).png"))); // NOI18N
+        jButton14.setBorder(null);
+        jButton14.setBorderPainted(false);
+        jButton14.setContentAreaFilled(false);
+        jButton14.setFocusPainted(false);
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+        add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(1740, 20, 70, 70));
+
         Lapiz_User6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/disquete.png"))); // NOI18N
         Lapiz_User6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -116,6 +143,11 @@ public class ProfilePage extends javax.swing.JPanel {
         add(Lapiz_User8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1630, 500, -1, 30));
 
         Lapiz_User9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/disquete.png"))); // NOI18N
+        Lapiz_User9.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                Lapiz_User9MouseMoved(evt);
+            }
+        });
         Lapiz_User9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Lapiz_User9MousePressed(evt);
@@ -146,6 +178,11 @@ public class ProfilePage extends javax.swing.JPanel {
             }
         });
         add(Lapiz_User2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1560, 660, 40, 50));
+
+        jLabel15.setFont(new java.awt.Font("Trebuchet MS", 0, 24)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel15.setFocusable(false);
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 340, 500, 50));
 
         Lapiz_User3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/lapiz.png"))); // NOI18N
         Lapiz_User3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -314,6 +351,11 @@ public class ProfilePage extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("BOOKING HISTORY");
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, 400, 50));
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
@@ -412,7 +454,8 @@ public class ProfilePage extends javax.swing.JPanel {
             fis.close();
             Carga.setVisible(true);
             Negro.setVisible(true);
-            Controlador.setUsuarioInside(BD.Imagen(Controlador.con, imageData));
+            BD.Imagencasa(Controlador.con, imageData, 18);
+            //Controlador.setUsuarioInside(BD.Imagen(Controlador.con, imageData));
 
             /*            BD.Imagen(Controlador.con, imageData);
            
@@ -555,30 +598,58 @@ public class ProfilePage extends javax.swing.JPanel {
     }//GEN-LAST:event_Lapiz_User5MousePressed
 
     private void Lapiz_User6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Lapiz_User6MousePressed
-        // TODO add your handling code here:
+         System.out.println(jTextField3.getText()); 
+        Controlador.setUsuarioInside(BD.update(Controlador.con, jTextField5.getText(),"surname"));
+     
+            jTextField5.setEditable(false);
+            Lapiz_User6.setVisible(false);
+            Lapiz_User2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/lapiz.png")));
     }//GEN-LAST:event_Lapiz_User6MousePressed
 
     private void Lapiz_User7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Lapiz_User7MousePressed
-        // TODO add your handling code here:
+       System.out.println(jTextField3.getText()); 
+        Controlador.setUsuarioInside(BD.update(Controlador.con, jTextField6.getText(),"adress"));
+     
+            jTextField6.setEditable(false);
+            Lapiz_User7.setVisible(false);
+            Lapiz_User3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/lapiz.png")));
     }//GEN-LAST:event_Lapiz_User7MousePressed
 
     private void Lapiz_User8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Lapiz_User8MousePressed
-        // TODO add your handling code here:
+        System.out.println(jTextField3.getText()); 
+        Controlador.setUsuarioInside(BD.update(Controlador.con, jTextField3.getText(),"name"));
+     
+            jTextField3.setEditable(false);
+            Lapiz_User8.setVisible(false);
+            Lapiz_User4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/lapiz.png")));
     }//GEN-LAST:event_Lapiz_User8MousePressed
 
     private void Lapiz_User9MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Lapiz_User9MousePressed
-        System.out.println(jTextField4.getText()); 
+       
+        if (Controlador.esDNIValido(jTextField4.getText())) {
+            System.out.println(jTextField4.getText()); 
         Controlador.setUsuarioInside(BD.dni(Controlador.con, jTextField4.getText()));
      
             jTextField4.setEditable(false);
             Lapiz_User9.setVisible(false);
             Lapiz_User5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/lapiz.png")));
-        
+        } else {
+            jLabel15.setText("El DNI no es válido.");
+            jTextField4.setEditable(false);
+            Lapiz_User9.setVisible(false);
+            Lapiz_User5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/lapiz.png")));
+        }
 //este
     }//GEN-LAST:event_Lapiz_User9MousePressed
 
     private void Lapiz_User10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Lapiz_User10MousePressed
-        // TODO add your handling code here:
+        System.out.println(jTextField7.getText()); 
+        Controlador.setUsuarioInside(BD.update(Controlador.con, jTextField7.getText(),"email"));
+     
+            jTextField7.setEditable(false);
+            Lapiz_User10.setVisible(false);
+            Lapiz_User1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/lapiz.png")));
+        
     }//GEN-LAST:event_Lapiz_User10MousePressed
 
     private void jLabel6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MousePressed
@@ -605,6 +676,21 @@ public class ProfilePage extends javax.swing.JPanel {
         marco.setVisible(true);
         ShopPage.jLabel9.setText("Credits: " + Controlador.getUsuarioInside().coins);
     }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+  JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
+        marco.remove(this);
+        marco.add(new UserHistory());
+        marco.setVisible(true);
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void Lapiz_User9MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Lapiz_User9MouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Lapiz_User9MouseMoved
     public void carga10() {
 
         int segundos = 5;
@@ -642,6 +728,7 @@ public class ProfilePage extends javax.swing.JPanel {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     public static javax.swing.JButton jButton13;
+    public static javax.swing.JButton jButton14;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     public static javax.swing.JLabel jLabel10;
@@ -649,6 +736,7 @@ public class ProfilePage extends javax.swing.JPanel {
     public static javax.swing.JLabel jLabel12;
     public static javax.swing.JLabel jLabel13;
     public static javax.swing.JLabel jLabel14;
+    public static javax.swing.JLabel jLabel15;
     public static javax.swing.JLabel jLabel2;
     public static javax.swing.JLabel jLabel3;
     public static javax.swing.JLabel jLabel4;
