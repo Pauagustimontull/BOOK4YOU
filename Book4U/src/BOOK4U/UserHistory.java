@@ -30,7 +30,7 @@ public class UserHistory extends javax.swing.JPanel {
         initComponents();
         Controlador.res.clear();
         BD.Reserva(Controlador.con);
-       
+       jLabel10.setText(Controlador.getUsuarioInside().name);
         System.out.println(Controlador.res.toString());
         Reserva[] miarray = new Reserva[Controlador.res.size()];
         miarray = Controlador.res.toArray(miarray);
@@ -60,7 +60,6 @@ jList1.setCellRenderer(new HTMLListCellRenderer());
 
         jFrame1 = new javax.swing.JFrame();
         jButton16 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -73,6 +72,7 @@ jList1.setCellRenderer(new HTMLListCellRenderer());
         jButton12 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
+        jLabel10 = new javax.swing.JLabel();
         Base = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
@@ -100,18 +100,6 @@ jList1.setCellRenderer(new HTMLListCellRenderer());
             }
         });
         add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(1730, 350, 70, 70));
-
-        jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/usuario (1).png"))); // NOI18N
-        jButton14.setBorder(null);
-        jButton14.setBorderPainted(false);
-        jButton14.setContentAreaFilled(false);
-        jButton14.setFocusPainted(false);
-        jButton14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton14ActionPerformed(evt);
-            }
-        });
-        add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(1740, 20, 70, 70));
 
         jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/flecha.png"))); // NOI18N
         jButton13.setBorder(null);
@@ -227,6 +215,14 @@ jList1.setCellRenderer(new HTMLListCellRenderer());
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 430, 1550, 520));
 
+        jLabel10.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
+        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel10MousePressed(evt);
+            }
+        });
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1470, 30, 310, 50));
+
         Base.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/UserHistory.png"))); // NOI18N
         add(Base, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2200, 1080));
     }// </editor-fold>//GEN-END:initComponents
@@ -292,10 +288,6 @@ jList1.setCellRenderer(new HTMLListCellRenderer());
         marco.setVisible(true);
     }//GEN-LAST:event_jLabel6MouseClicked
 
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton14ActionPerformed
-
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         Controlador.setUser(null);
         System.out.println(Controlador.getUser());
@@ -330,6 +322,10 @@ jList1.setModel(modelo);
 jList1.setCellRenderer(new HTMLListCellRenderer());
     }//GEN-LAST:event_jButton16ActionPerformed
 
+    private void jLabel10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel10MousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Base;
@@ -337,9 +333,9 @@ jList1.setCellRenderer(new HTMLListCellRenderer());
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     public static javax.swing.JButton jButton13;
-    public static javax.swing.JButton jButton14;
     private javax.swing.JButton jButton16;
     private javax.swing.JFrame jFrame1;
+    public static javax.swing.JLabel jLabel10;
     public static javax.swing.JLabel jLabel4;
     public static javax.swing.JLabel jLabel5;
     public static javax.swing.JLabel jLabel6;

@@ -35,6 +35,7 @@ public class ProfilePage extends javax.swing.JPanel {
         jTextField5.setText("" + Controlador.getUsuarioInside().surname);
         jTextField6.setText("" + Controlador.getUsuarioInside().adress);
         jTextField7.setText("" + Controlador.getUsuarioInside().email);
+        jLabel16.setText(Controlador.getUsuarioInside().name);
         Controlador.Setimage();
         BD.obtenerApartamentos(Controlador.con);
     }
@@ -49,7 +50,6 @@ public class ProfilePage extends javax.swing.JPanel {
     private void initComponents() {
 
         jFrame1 = new javax.swing.JFrame();
-        jButton14 = new javax.swing.JButton();
         Lapiz_User6 = new javax.swing.JLabel();
         Lapiz_User6.setVisible(false);
         Lapiz_User7 = new javax.swing.JLabel();
@@ -72,6 +72,7 @@ public class ProfilePage extends javax.swing.JPanel {
         jTextField4 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -105,18 +106,6 @@ public class ProfilePage extends javax.swing.JPanel {
 
         setMaximumSize(new java.awt.Dimension(25, 25));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/usuario (1).png"))); // NOI18N
-        jButton14.setBorder(null);
-        jButton14.setBorderPainted(false);
-        jButton14.setContentAreaFilled(false);
-        jButton14.setFocusPainted(false);
-        jButton14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton14ActionPerformed(evt);
-            }
-        });
-        add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(1740, 20, 70, 70));
 
         Lapiz_User6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/disquete.png"))); // NOI18N
         Lapiz_User6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -297,6 +286,14 @@ public class ProfilePage extends javax.swing.JPanel {
         jLabel13.setText("Dni");
         jLabel13.setFocusable(false);
         add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 400, 80, 50));
+
+        jLabel16.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
+        jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel16MousePressed(evt);
+            }
+        });
+        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(1470, 30, 310, 50));
 
         jLabel14.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
         jLabel14.setText("Adress");
@@ -684,13 +681,13 @@ public class ProfilePage extends javax.swing.JPanel {
         marco.setVisible(true);
     }//GEN-LAST:event_jLabel5MouseClicked
 
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton14ActionPerformed
-
     private void Lapiz_User9MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Lapiz_User9MouseMoved
         // TODO add your handling code here:
     }//GEN-LAST:event_Lapiz_User9MouseMoved
+
+    private void jLabel16MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel16MousePressed
     public void carga10() {
 
         int segundos = 5;
@@ -728,7 +725,6 @@ public class ProfilePage extends javax.swing.JPanel {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     public static javax.swing.JButton jButton13;
-    public static javax.swing.JButton jButton14;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     public static javax.swing.JLabel jLabel10;
@@ -737,6 +733,7 @@ public class ProfilePage extends javax.swing.JPanel {
     public static javax.swing.JLabel jLabel13;
     public static javax.swing.JLabel jLabel14;
     public static javax.swing.JLabel jLabel15;
+    public static javax.swing.JLabel jLabel16;
     public static javax.swing.JLabel jLabel2;
     public static javax.swing.JLabel jLabel3;
     public static javax.swing.JLabel jLabel4;

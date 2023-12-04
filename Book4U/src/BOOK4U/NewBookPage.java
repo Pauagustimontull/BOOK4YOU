@@ -23,6 +23,7 @@ public class NewBookPage extends javax.swing.JPanel {
     public NewBookPage() {
         initComponents();
         jLabel9.setText("Credits: " + Controlador.getUsuarioInside().coins);
+        jLabel10.setText(Controlador.getUsuarioInside().name);
         jScrollPane1.setVisible(false);
         Barcelona1.setVisible(false);
         Barcelona2.setVisible(false);
@@ -39,8 +40,8 @@ public class NewBookPage extends javax.swing.JPanel {
     private void initComponents() {
 
         jFrame1 = new javax.swing.JFrame();
-        jButton15 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
         Barcelona2 = new javax.swing.JLabel();
         Barcelona1 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -84,18 +85,6 @@ public class NewBookPage extends javax.swing.JPanel {
         setMaximumSize(new java.awt.Dimension(25, 25));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/usuario (1).png"))); // NOI18N
-        jButton15.setBorder(null);
-        jButton15.setBorderPainted(false);
-        jButton15.setContentAreaFilled(false);
-        jButton15.setFocusPainted(false);
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton15ActionPerformed(evt);
-            }
-        });
-        add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1720, 20, 70, 70));
-
         jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/proximo.png"))); // NOI18N
         jButton14.setBorder(null);
         jButton14.setBorderPainted(false);
@@ -107,6 +96,14 @@ public class NewBookPage extends javax.swing.JPanel {
             }
         });
         add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(1610, 970, 70, -1));
+
+        jLabel10.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
+        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel10MousePressed(evt);
+            }
+        });
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1470, 30, 310, 50));
 
         Barcelona2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Marco.png"))); // NOI18N
         add(Barcelona2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1370, 600, 500, 370));
@@ -450,9 +447,9 @@ public class NewBookPage extends javax.swing.JPanel {
         marco.setVisible(true);
     }//GEN-LAST:event_jLabel5MouseClicked
 
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+    private void jLabel10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton15ActionPerformed
+    }//GEN-LAST:event_jLabel10MousePressed
     public void imagenes(Blob imagen) {
         Blob blob = imagen;
         byte[] imagenBytes = null;
@@ -500,9 +497,9 @@ public class NewBookPage extends javax.swing.JPanel {
     private javax.swing.JButton jButton12;
     public static javax.swing.JButton jButton13;
     public static javax.swing.JButton jButton14;
-    public static javax.swing.JButton jButton15;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
+    public static javax.swing.JLabel jLabel10;
     public static javax.swing.JLabel jLabel4;
     public static javax.swing.JLabel jLabel5;
     public static javax.swing.JLabel jLabel6;

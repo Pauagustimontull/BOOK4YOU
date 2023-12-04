@@ -44,6 +44,7 @@ public class NewbookPageCalendar extends javax.swing.JPanel {
         jLabel8.setVisible(false);
         jLabel7.setVisible(false);
         jLabel6.setVisible(false);
+        jLabel10.setText(Controlador.getUsuarioInside().name);
         jLabel5.setVisible(false);
         jLabel4.setVisible(false);
         casa.setVisible(false);
@@ -72,7 +73,6 @@ public class NewbookPageCalendar extends javax.swing.JPanel {
         boton_paypal = new javax.swing.JLabel();
         jTextArea9 = new javax.swing.JTextArea();
         jTextArea5 = new javax.swing.JTextArea();
-        jButton14 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -90,6 +90,7 @@ public class NewbookPageCalendar extends javax.swing.JPanel {
         jTextArea3 = new javax.swing.JTextArea();
         dateChooser1 = new com.raven.datechooser.DateChooser();
         dateChooser2 = new com.raven.datechooser.DateChooser();
+        jLabel10 = new javax.swing.JLabel();
         Base = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
@@ -166,18 +167,6 @@ public class NewbookPageCalendar extends javax.swing.JPanel {
         jTextArea5.setToolTipText("");
         jTextArea5.setBorder(null);
         add(jTextArea5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1270, 800, 470, 40));
-
-        jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/usuario (1).png"))); // NOI18N
-        jButton14.setBorder(null);
-        jButton14.setBorderPainted(false);
-        jButton14.setContentAreaFilled(false);
-        jButton14.setFocusPainted(false);
-        jButton14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton14ActionPerformed(evt);
-            }
-        });
-        add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(1700, 20, 70, 70));
 
         jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/flecha.png"))); // NOI18N
         jButton13.setBorder(null);
@@ -326,6 +315,14 @@ public class NewbookPageCalendar extends javax.swing.JPanel {
         });
         add(dateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1510, 570, -1, -1));
 
+        jLabel10.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
+        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel10MousePressed(evt);
+            }
+        });
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1470, 30, 310, 50));
+
         Base.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NewBookingCalendar.png"))); // NOI18N
         add(Base, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2200, 1080));
     }// </editor-fold>//GEN-END:initComponents
@@ -388,10 +385,6 @@ public class NewbookPageCalendar extends javax.swing.JPanel {
         marco.add(new UserHistory());
         marco.setVisible(true);
     }//GEN-LAST:event_jLabel5MouseClicked
-
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         Controlador.setUser(null);
@@ -457,6 +450,10 @@ public class NewbookPageCalendar extends javax.swing.JPanel {
         jButton16.setVisible(false);
         boton_paypal.setVisible(false);
     }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void jLabel10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel10MousePressed
     public void imagenes(Blob imagen) {
         Blob blob = imagen;
         byte[] imagenBytes = null;
@@ -482,10 +479,10 @@ public class NewbookPageCalendar extends javax.swing.JPanel {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     public static javax.swing.JButton jButton13;
-    public static javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JFrame jFrame1;
+    public static javax.swing.JLabel jLabel10;
     public static javax.swing.JLabel jLabel4;
     public static javax.swing.JLabel jLabel5;
     public static javax.swing.JLabel jLabel6;

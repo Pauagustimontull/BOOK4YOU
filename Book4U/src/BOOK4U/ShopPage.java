@@ -33,6 +33,7 @@ public class ShopPage extends javax.swing.JPanel {
         password_paypal.setVisible(false);
         jButton16.setVisible(false);
         User_Paypal1.setVisible(false);
+        jLabel10.setText(Controlador.getUsuarioInside().name);
 
     }
 
@@ -53,7 +54,6 @@ public class ShopPage extends javax.swing.JPanel {
         base_paypal = new javax.swing.JLabel();
         Carga = new javax.swing.JLabel();
         boton_paypal = new javax.swing.JLabel();
-        jButton17 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         base_paypal.setText(String.valueOf(Controlador.getCont()));
         jLabel12 = new javax.swing.JLabel();
@@ -73,6 +73,7 @@ public class ShopPage extends javax.swing.JPanel {
         jButton14 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
@@ -166,18 +167,6 @@ public class ShopPage extends javax.swing.JPanel {
         boton_paypal.setForeground(new java.awt.Color(102, 102, 102));
         boton_paypal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/negro.png"))); // NOI18N
         add(boton_paypal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2200, 1080));
-
-        jButton17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/usuario (1).png"))); // NOI18N
-        jButton17.setBorder(null);
-        jButton17.setBorderPainted(false);
-        jButton17.setContentAreaFilled(false);
-        jButton17.setFocusPainted(false);
-        jButton17.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton17ActionPerformed(evt);
-            }
-        });
-        add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(1740, 20, 70, 70));
 
         jLabel13.setBackground(new java.awt.Color(0, 0, 0));
         jLabel13.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
@@ -326,6 +315,14 @@ public class ShopPage extends javax.swing.JPanel {
             }
         });
         add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1820, 20, 60, 70));
+
+        jLabel10.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
+        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel10MousePressed(evt);
+            }
+        });
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1470, 30, 310, 50));
 
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/shop.png"))); // NOI18N
@@ -492,9 +489,9 @@ public class ShopPage extends javax.swing.JPanel {
         marco.setVisible(true);
     }//GEN-LAST:event_jLabel5MouseClicked
 
-    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+    private void jLabel10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton17ActionPerformed
+    }//GEN-LAST:event_jLabel10MousePressed
     public void carga10() {
 
         int segundos = 5;
@@ -528,9 +525,9 @@ public class ShopPage extends javax.swing.JPanel {
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
     public static javax.swing.JButton jButton16;
-    public static javax.swing.JButton jButton17;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
+    public static javax.swing.JLabel jLabel10;
     public static javax.swing.JLabel jLabel11;
     public static javax.swing.JLabel jLabel12;
     public static javax.swing.JLabel jLabel13;
