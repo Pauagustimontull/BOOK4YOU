@@ -34,6 +34,7 @@ public class NewbookPageCalendar extends javax.swing.JPanel {
 
     boolean selected = false;
     public static Apartamento ap;
+    public static int precio = 0;
     
 
     public NewbookPageCalendar() {
@@ -53,6 +54,7 @@ public class NewbookPageCalendar extends javax.swing.JPanel {
         jButton15.setVisible(false);
         jButton16.setVisible(false);
         boton_paypal.setVisible(false);
+        jTextArea10.setVisible(false);
 
     }
 
@@ -67,6 +69,7 @@ public class NewbookPageCalendar extends javax.swing.JPanel {
 
         jFrame1 = new javax.swing.JFrame();
         jButton16 = new javax.swing.JButton();
+        jTextArea10 = new javax.swing.JTextArea();
         jTextArea8 = new javax.swing.JTextArea();
         jButton15 = new javax.swing.JButton();
         Barcelona3 = new javax.swing.JLabel();
@@ -118,6 +121,15 @@ public class NewbookPageCalendar extends javax.swing.JPanel {
             }
         });
         add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 710, 80, 90));
+
+        jTextArea10.setEditable(false);
+        jTextArea10.setBackground(new java.awt.Color(153, 153, 153));
+        jTextArea10.setColumns(20);
+        jTextArea10.setFont(new java.awt.Font("Trebuchet MS", 0, 36)); // NOI18N
+        jTextArea10.setRows(5);
+        jTextArea10.setToolTipText("");
+        jTextArea10.setBorder(null);
+        add(jTextArea10, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 650, 760, 60));
 
         jTextArea8.setEditable(false);
         jTextArea8.setBackground(new java.awt.Color(153, 153, 153));
@@ -328,12 +340,48 @@ public class NewbookPageCalendar extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        jTextArea5.setText("");
-        Barcelona3.setVisible(true);
+        
+         LocalDate fecha2 = null;
+    LocalDate fecha1 = null;
+    SelectedDate d = dateChooser1.getSelectedDate();
+    String ent = String.format("%02d-%02d-%d", d.getDay(), d.getMonth(), d.getYear());
+
+    SelectedDate d2 = dateChooser2.getSelectedDate();
+    String sal = String.format("%02d-%02d-%d", d2.getDay(), d2.getMonth(), d2.getYear());
+   
+        jTextArea10.setVisible(true);
+        try {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        fecha1 = LocalDate.parse(ent, formatter);
+        fecha2= LocalDate.parse(sal, formatter);
+       
+
+        if (fecha1.isBefore(fecha2) || fecha1.isEqual(fecha2)) {
+            // Calcular la diferencia de días
+            Period period = Period.between(fecha1, fecha2);
+            int diasDiferencia = period.getDays();
+
+            int pric2 = diasDiferencia * ap.getPrice();
+
+            jTextArea10.setText("for the price of: "+Integer.toString(pric2));
+              Barcelona3.setVisible(true);
         jTextArea8.setVisible(true);
         jButton15.setVisible(true);
         jButton16.setVisible(true);
         boton_paypal.setVisible(true);
+            //String strNumero = Integer.toString(pric);
+            
+        } else {
+            jTextArea5.setText("Las fechas no son correctas");
+        }
+    } catch (DateTimeParseException ex) {
+        Logger.getLogger(NewbookPageCalendar.class.getName()).log(Level.SEVERE, null, ex);
+        jTextArea5.setText("Error al analizar las fechas");
+    }
+        
+        
+      
+        
 
     }//GEN-LAST:event_jButton10ActionPerformed
 
@@ -427,20 +475,23 @@ public class NewbookPageCalendar extends javax.swing.JPanel {
 
             System.out.println(diasDiferencia);
             //String strNumero = Integer.toString(pric);
-            BD.insertBooking(Controlador.con, ent, sal, ap.getId(), pric2, ap.getPlace());
+            Controlador.setUsuarioInside(BD.insertBooking(Controlador.con, ent, sal, ap.getId(), pric2, ap.getPlace()));
+           
         } else {
-            jTextArea5.setText("Las fechas no son correctas");
+            jTextArea5.setText("The dates are not correct");
         }
     } catch (DateTimeParseException ex) {
         Logger.getLogger(NewbookPageCalendar.class.getName()).log(Level.SEVERE, null, ex);
-        jTextArea5.setText("Error al analizar las fechas");
+        jTextArea5.setText("Error");
     }
 
     Barcelona3.setVisible(false);
     jTextArea8.setVisible(false);
     jButton15.setVisible(false);
     jButton16.setVisible(false);
+    jTextArea10.setVisible(false);
     boton_paypal.setVisible(false);
+   
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
@@ -448,6 +499,7 @@ public class NewbookPageCalendar extends javax.swing.JPanel {
         jTextArea8.setVisible(false);
         jButton15.setVisible(false);
         jButton16.setVisible(false);
+        jTextArea10.setVisible(false);
         boton_paypal.setVisible(false);
     }//GEN-LAST:event_jButton16ActionPerformed
 
@@ -482,13 +534,14 @@ public class NewbookPageCalendar extends javax.swing.JPanel {
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JFrame jFrame1;
-    public static javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel10;
     public static javax.swing.JLabel jLabel4;
     public static javax.swing.JLabel jLabel5;
     public static javax.swing.JLabel jLabel6;
     public static javax.swing.JLabel jLabel7;
     public static javax.swing.JLabel jLabel8;
     public static javax.swing.JLabel jLabel9;
+    private javax.swing.JTextArea jTextArea10;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea jTextArea4;
     public static javax.swing.JTextArea jTextArea5;

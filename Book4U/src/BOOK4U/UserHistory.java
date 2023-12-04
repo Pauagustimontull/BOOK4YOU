@@ -39,13 +39,14 @@ public class UserHistory extends javax.swing.JPanel {
 for (int i = 0; i < Controlador.res.size(); i++) {
     String relleno = miarray[i].getPlace() + ", " + miarray[i].getPrice() + ", " + miarray[i].getDatee() + ", " + miarray[i].getDates()+", "+miarray[i].getId_apartment()+", "+miarray[i].getStatus();
     modelo.addElement(relleno);
-    jLabel9.setText("Credits: " + Controlador.getUsuarioInside().coins);
+    
 }
 
 jList1.setModel(modelo);
 
 // Configurar el renderizador HTML para el JList
 jList1.setCellRenderer(new HTMLListCellRenderer());
+jLabel9.setText("Credits: " + Controlador.getUsuarioInside().coins);
 
     }
 

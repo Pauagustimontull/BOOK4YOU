@@ -27,7 +27,6 @@ if(parts[5].equals("1")){
                    "</div>" +
                    "</td>" +
                    "<td style='vertical-align: top;'>" +
-                   "<img src="+Controlador.buscar(Integer.parseInt(parts[4]))+" style='width: 50px; height: 50px; margin-left:70px;' />" +
                    "</td>" +
                    "</tr>" +
                    "</table> <br>" +
@@ -47,7 +46,6 @@ if(parts[5].equals("1")){
                    "</div>" +
                    "</td>" +
                    "<td style='vertical-align: top;'>" +
-                   "<img src="+Controlador.buscar(Integer.parseInt(parts[4]))+" style='width: 50px; height: 50px; margin-left:70px;' />" +
                    "</td>" +
                    "</tr>" +
                    "</table> <br>" +

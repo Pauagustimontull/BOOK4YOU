@@ -33,7 +33,12 @@ public class ProfilePage extends javax.swing.JPanel {
         jTextField4.setText("" + Controlador.getUsuarioInside().dni);
         jTextField3.setText("" + Controlador.getUsuarioInside().name);
         jTextField5.setText("" + Controlador.getUsuarioInside().surname);
-        jTextField6.setText("" + Controlador.getUsuarioInside().adress);
+        if(Controlador.getUsuarioInside().adress==null){
+          jTextField6.setText("");  
+        }else{
+            jTextField6.setText("" + Controlador.getUsuarioInside().adress);
+        }
+        
         jTextField7.setText("" + Controlador.getUsuarioInside().email);
         jLabel16.setText(Controlador.getUsuarioInside().name);
         Controlador.Setimage();
@@ -451,8 +456,8 @@ public class ProfilePage extends javax.swing.JPanel {
             fis.close();
             Carga.setVisible(true);
             Negro.setVisible(true);
-            BD.Imagencasa(Controlador.con, imageData, 18);
-            //Controlador.setUsuarioInside(BD.Imagen(Controlador.con, imageData));
+            //BD.Imagencasa(Controlador.con, imageData, 18);
+            Controlador.setUsuarioInside(BD.Imagen(Controlador.con, imageData));
 
             /*            BD.Imagen(Controlador.con, imageData);
            

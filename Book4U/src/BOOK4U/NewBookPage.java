@@ -28,6 +28,15 @@ public class NewBookPage extends javax.swing.JPanel {
         Barcelona1.setVisible(false);
         Barcelona2.setVisible(false);
         jButton14.setVisible(false);
+        Barcelona.setVisible(false);
+        Madrid.setVisible(false);
+        Sevilla.setVisible(false);
+        Coruña.setVisible(false);
+        Zaragoza.setVisible(false);
+        Valencia.setVisible(false);
+        Valladolid.setVisible(false);
+        Asturias.setVisible(false);
+        Murcia.setVisible(false);
     }
 
     /**

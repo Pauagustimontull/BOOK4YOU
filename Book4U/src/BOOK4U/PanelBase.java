@@ -106,7 +106,7 @@ public class PanelBase extends javax.swing.JPanel {
 
         jTextField3.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
         jTextField3.setForeground(new java.awt.Color(102, 102, 102));
-        jTextField3.setText("pau@pau.com");
+        jTextField3.setText("Email");
         jTextField3.setBorder(null);
         jTextField3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -131,7 +131,7 @@ public class PanelBase extends javax.swing.JPanel {
 
         jPasswordField1.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
         jPasswordField1.setForeground(new java.awt.Color(102, 102, 102));
-        jPasswordField1.setText("pau");
+        jPasswordField1.setText("password");
         jPasswordField1.setBorder(null);
         jPasswordField1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

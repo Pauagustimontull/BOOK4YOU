@@ -33,6 +33,7 @@ public class ShopPage extends javax.swing.JPanel {
         password_paypal.setVisible(false);
         jButton16.setVisible(false);
         User_Paypal1.setVisible(false);
+        jLabel9.setText("Credits: " + Controlador.getUsuarioInside().coins);
         jLabel10.setText(Controlador.getUsuarioInside().name);
 
     }
@@ -454,7 +455,8 @@ public class ShopPage extends javax.swing.JPanel {
             }
 
         }
-        BD.shop(Controlador.con, Controlador.cont);
+        Controlador.setUsuarioInside(BD.shop(Controlador.con, Controlador.getUsuarioInside().coins + Controlador.cont));
+        jLabel9.setText("Credits: " + Controlador.getUsuarioInside().coins);
         base_paypal.setVisible(false);
         User_Paypal.setVisible(false);
         User_Paypal1.setVisible(false);

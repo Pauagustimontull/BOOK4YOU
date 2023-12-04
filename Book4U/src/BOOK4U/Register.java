@@ -5,6 +5,11 @@
  */
 package BOOK4U;
 
+import static BOOK4U.ProfilePage.Carga;
+import static BOOK4U.ProfilePage.Negro;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import javax.swing.JFrame;
 
 import javax.swing.SwingUtilities;
@@ -16,7 +21,7 @@ import javax.swing.SwingUtilities;
 public class Register extends javax.swing.JPanel {
 
     boolean selected = false;
-
+    byte[] imageData = null;
     public Register() {
         initComponents();
     }
@@ -231,22 +236,29 @@ public class Register extends javax.swing.JPanel {
         if (!Name.getText().isEmpty() && !Email.getText().isEmpty() && !Password.getText().isEmpty() && !Dni.getText().isEmpty() && !Surname.getText().isEmpty()) {
 
             if (Password.getText().equals(ConfirmPassword.getText()) && Dni.getText().length() == 9) {
-                Controlador.setUsuarioInside(BD.register(Controlador.con, Name.getText(), Email.getText(), Controlador.hash(Password.getText()), Dni.getText(), Surname.getText()));
+                File imageFile = new File("C:\\Users\\Pau\\Documents\\GitHub\\BOOK4YOU\\Book4U\\src\\Images\\256.png");
+        try {
+            FileInputStream fis = new FileInputStream(imageFile);
+            imageData = new byte[(int) imageFile.length()];
+            fis.read(imageData);
+            fis.close();
+        
+            //BD.Imagencasa(Controlador.con, imageData, 18);
+            Controlador.setUsuarioInside(BD.register(Controlador.con, Name.getText(), Email.getText(), Controlador.hash(Password.getText()), Dni.getText(), Surname.getText(), imageData));
+
+           
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+               
                 if (Controlador.getUsuarioInside() != null) {
 
                     JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
                     marco.remove(this);
-                    marco.add(new NewBookPage());
+                    marco.add(new ProfilePage());
                     marco.setVisible(true);
-                    NewBookPage.Barcelona.setVisible(false);
-                    NewBookPage.Madrid.setVisible(false);
-                    NewBookPage.Sevilla.setVisible(false);
-                    NewBookPage.Coruña.setVisible(false);
-                    NewBookPage.Zaragoza.setVisible(false);
-                    NewBookPage.Valencia.setVisible(false);
-                    NewBookPage.Valladolid.setVisible(false);
-                    NewBookPage.Asturias.setVisible(false);
-                    NewBookPage.Murcia.setVisible(false);
+  
                     System.out.println(Controlador.getUsuarioInside());
                 }
             } else {

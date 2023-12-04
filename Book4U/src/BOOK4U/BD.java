@@ -1,5 +1,6 @@
 package BOOK4U;
 
+import static BOOK4U.NewbookPageCalendar.jTextArea5;
 import java.awt.List;
 import java.io.ByteArrayInputStream;
 import java.sql.Blob;
@@ -103,14 +104,15 @@ public class BD {
         return usuario;
     }
 
-    public static Usuario register(Connection con, String name, String email, String password, String dnii, String surname) {
+    public static Usuario register(Connection con, String name, String email, String password, String dnii, String surname, byte[] imagen) {
         String sql = "INSERT INTO USUARIO (name, email, password, image, coins, dnii, surname, adress, active) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         Usuario usuario = null;
+         ByteArrayInputStream inputStream = new ByteArrayInputStream(imagen);
         try (PreparedStatement st = con.prepareStatement(sql)) {
             st.setString(1, name);
             st.setString(2, email);
             st.setString(3, password);
-            st.setString(4, null);
+            st.setBinaryStream(4, inputStream, imagen.length);
             st.setInt(5, 0);
             st.setString(6, dnii);
             st.setString(7, surname);
@@ -123,6 +125,7 @@ public class BD {
             System.out.println("Error en la consulta: " + e);
 
         }
+        //usuario = Imagen(con, imagen);
         usuario = login(con, email, password);
         return usuario;
     }
@@ -276,8 +279,9 @@ public class BD {
         return usuario;
     }
 
-    public static void insertBooking(Connection con, String dateStr1, String dateStr2, int idApartment, int price, String place) {
- String name = "test";
+    public static Usuario insertBooking(Connection con, String dateStr1, String dateStr2, int idApartment, int price, String place) {
+     Usuario usuario = null;
+        String name = "test";
     int idUser = Controlador.getUsuarioInside().id;
     int idHistoric = 1;
     int paid = 1;
@@ -311,7 +315,7 @@ public class BD {
 
             if (existingBookings > 0) {
                 // El apartamento está ocupado en las fechas dadas
-                NewbookPageCalendar.jTextArea9.setText("El apartamento ya está ocupado en esas fechas. No se puede realizar la reserva.");
+                NewbookPageCalendar.jTextArea9.setText("The apartment is already occupied on those dates. Reservation cannot be made.");
             } else {
                 String sql = "INSERT INTO BOOKING (NAME, PRICE, ID_USER, PLACE, ID_HISTORIC, DATEE, ID_APARTMENT, PAID, STATUS, DATES) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -339,11 +343,15 @@ public class BD {
                 }
             }
         } catch (SQLException e) {
-            System.out.println("Error al verificar la disponibilidad: " + e);
+            jTextArea5.setText("Error al verificar la disponibilidad: " + e);
         }
     } else {
         System.out.println("Error: no hay suficientes monedas");
+         jTextArea5.setText("Error: no hay suficientes monedas");
     }
+       usuario = login(con, Controlador.getUsuarioInside().email, Controlador.getUsuarioInside().password);
+     
+    return usuario;
     }
 
     public static void Reserva(Connection con) {
